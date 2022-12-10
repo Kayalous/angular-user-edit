@@ -1,0 +1,47 @@
+<div
+  class="p-4 rounded-lg shadow-outline-gray w-[225px] max-w-[225px] flex flex-col gap-[5px]"
+>
+  <div class="flex items-start justify-between w-full">
+    <img
+      [src]="user['img']"
+      alt="user image"
+      class="w-[45px] h-[45px] object-cover rounded-full"
+    />
+    <span>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="options">
+        <mat-icon class="text-[#7E8299]">more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openDialog()">
+          <span class="text-[#5E6278]">Edit</span>
+        </button>
+        <button mat-menu-item (click)="deleteUser()">
+          <span class="text-red-500">Delete</span>
+        </button>
+      </mat-menu>
+    </span>
+  </div>
+  <div class="flex flex-col gap-1">
+    <h4 class="text-[#606060] font-medium line-clamp-1 overflow-ellipsis">
+      {{ user["username"] }}
+    </h4>
+    <h5 class="text-[#C2C2C2] text-xs line-clamp-1 overflow-ellipsis">
+      {{ user["email"] }}
+    </h5>
+  </div>
+  <h6
+    class="text-[10px] tracking-widest flex items-center justify-start gap-1 uppercase"
+    [ngClass]="user['active'] ? 'text-[#1A873C]' : 'text-[#C2C2C2]'"
+  >
+    <svg
+      width="6"
+      height="6"
+      viewBox="0 0 6 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="3" cy="3" r="3" fill="currentColor" />
+    </svg>
+    {{ user["active"] ? "Active" : "Inactive" }}
+  </h6>
+</div>

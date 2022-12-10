@@ -1,1 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* switch handle */
+  --mdc-switch-handle-width: 28px;
+  --mdc-switch-handle-height: 28px;
+  --mdc-switch-handle-shape: 50%;
+  --mdc-switch-selected-track-color: #fff;
+  --mdc-switch-unselected-track-color: #fff;
+  --mdc-switch-handle-surface-color: #fff;
+  /* switch track */
+  --mdc-switch-track-height: 30px;
+  --mdc-switch-track-width: 50px;
+  --mdc-switch-track-shape: 16px;
+  --mdc-switch-unselected-track-color: #c2c2c2;
+  --mdc-switch-selected-track-color: #1a873c;
+}
+
+.mdc-switch__ripple {
+  opacity: 0;
+}
+.mdc-switch__icons {
+  opacity: 0;
+}
+
+.marihub-dialog .mat-mdc-dialog-surface {
+  @apply !rounded-lg !shadow-outline-gray;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__content {
+  @apply !font-sans;
+}
+
+.form-control {
+  @apply flex flex-col gap-2;
+}
+.form-control label {
+  @apply text-[#606060] text-sm font-medium;
+}
+.form-control input[type="text"],
+.form-control input[type="email"] {
+  @apply placeholder:text-[#C2C2C2] transition text-[#3570FF] w-full border-[#F0F0F0] focus:border-[#F0F0F0] focus:outline-none focus:ring-1 focus:ring-[#3570FF] border rounded-[4px] p-3;
+}
+
+.mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__track::before {
+  background-color: #c2c2c2 !important;
+}
+
+.mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+  background-color: #1a873c !important;
+}
+
+.mat-mdc-slide-toggle
+  .mdc-switch.mdc-switch--unselected:enabled
+  .mdc-switch__handle::after {
+  background-color: #fff !important;
+}
+
+.mat-mdc-slide-toggle
+  .mdc-switch.mdc-switch--selected:enabled
+  .mdc-switch__handle::after {
+  background-color: #fff !important;
+}
+
+.mdc-switch__handle-track {
+  transform: translateX(1px) !important;
+}
+
+.mdc-switch--selected .mdc-switch__handle-track {
+  transform: translateX(100%) translateX(-1px) !important;
+}
+
+.mat-mdc-menu-content {
+  @apply !p-0;
+}
+
+.mat-elevation-z8,
+.mat-mdc-elevation-specific.mat-elevation-z8 {
+  @apply !shadow-outline-gray;
+}

@@ -1,0 +1,65 @@
+<section
+  class="flex items-center justify-center min-h-screen py-20 min-w-screen"
+>
+  <div
+    class="shadow-outline-gray w-full max-w-[1050px] min-h-[700px] p-12 rounded-lg flex flex-col items-center justify-start"
+  >
+    <div
+      class="flex items-center justify-between border-b border-[#DEDEDE] pb-4 w-full"
+    >
+      <div class="flex flex-col gap-1">
+        <h1 class="text-[32px] text-[#3570FF]">List of Users</h1>
+        <h2 class="text-sm text-[#979797] font-medium">
+          Add and edit company members to collaborate on Marihub!
+        </h2>
+      </div>
+
+      <button
+        mat-button
+        (click)="openDialog()"
+        class="bg-[#F5F5F5] text-[#3570FF] flex items-center justify-center gap-2 py-2.5 px-4 uppercase rounded-[4px] font-medium text-sm hover:brightness-95 transition"
+      >
+        <svg
+          width="16"
+          height="17"
+          viewBox="0 0 16 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <mask
+            id="mask0_8_418"
+            style="mask-type: alpha"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="16"
+            height="17"
+          >
+            <rect y="0.5" width="16" height="16" fill="#D9D9D9" />
+          </mask>
+          <g mask="url(#mask0_8_418)">
+            <path
+              d="M7.33334 13.1667V9.16668H3.33334V7.83334H7.33334V3.83334H8.66668V7.83334H12.6667V9.16668H8.66668V13.1667H7.33334Z"
+              fill="#3570FF"
+            />
+          </g>
+        </svg>
+        <span> Add new user </span>
+      </button>
+    </div>
+    <div class="w-full pt-12">
+      <app-empty-state
+        *ngIf="users.length < 1; else elseBlock"
+      ></app-empty-state>
+      <ng-template class="w-full" #elseBlock>
+        <div class="flex flex-wrap items-start justify-start w-full gap-4">
+          <app-user-card
+            *ngFor="let user of users; let i = index"
+            [user]="user"
+            [index]="i"
+          ></app-user-card>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,219 @@
+<form
+  [formGroup]="userForm"
+  (ngSubmit)="submit()"
+  class="flex flex-col w-full gap-4"
+>
+  <section class="flex flex-col w-full gap-4 pb-4 border-b border-[#DEDEDE]">
+    <h3 class="text-lg text-[#979797] font-medium">User information</h3>
+    <div class="form-control">
+      <label for="email">Email ID* </label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="Ex. alaa@marihub.com"
+      />
+      <div
+        class="flex flex-col w-full gap-4"
+        *ngIf="
+          userForm?.controls['email']?.touched &&
+          userForm?.controls['email']?.errors
+        "
+      >
+        <span
+          class="text-red-500"
+          *ngIf="userForm.controls['email'].errors['required']"
+        >
+          Email address is required.
+        </span>
+        <span
+          class="text-red-500"
+          *ngIf="userForm.controls['email'].errors['email']"
+        >
+          Email has to be valid.
+        </span>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="username">User Name*</label>
+      <input
+        id="username"
+        type="text"
+        formControlName="username"
+        placeholder="Ex. Alaa Mansour..."
+      />
+      <div
+        class="flex flex-col w-full gap-4"
+        *ngIf="
+          userForm?.controls['username']?.touched &&
+          userForm?.controls['username']?.errors
+        "
+      >
+        <span
+          class="text-red-500"
+          *ngIf="userForm.controls['username'].errors['required']"
+        >
+          Username is required.
+        </span>
+      </div>
+    </div>
+  </section>
+  <section class="flex flex-col w-full gap-4 pb-4 border-b border-[#DEDEDE]">
+    <h3 class="text-lg text-[#979797] font-medium">User permissions</h3>
+    <!-- Account config access -->
+    <div class="flex w-full gap-2.5">
+      <mat-slide-toggle
+        id="accessConfig"
+        formControlName="accessConfig"
+        class="pt-[5px]"
+      >
+      </mat-slide-toggle>
+      <div class="flex flex-col flex-1 gap-[5px]">
+        <label
+          for="accessConfig"
+          class="py-2.5 px-4 text-sm flex-1 rounded-lg transition"
+          [ngClass]="{
+            'text-[#606060] bg-[#FAFAFA]':
+              !userForm.controls['accessConfig'].value,
+            'text-[#1A873C] bg-[#1A873C1A]':
+              userForm.controls['accessConfig'].value
+          }"
+          >Access company’s account configuration</label
+        >
+        <span class="text-[#979797] text-xs flex flex-1 gap-1">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_9_2209)">
+              <path
+                d="M7.33337 4.66667H8.66671V6H7.33337V4.66667ZM7.33337 7.33333H8.66671V11.3333H7.33337V7.33333ZM8.00004 1.33333C4.32004 1.33333 1.33337 4.32 1.33337 8C1.33337 11.68 4.32004 14.6667 8.00004 14.6667C11.68 14.6667 14.6667 11.68 14.6667 8C14.6667 4.32 11.68 1.33333 8.00004 1.33333ZM8.00004 13.3333C5.06004 13.3333 2.66671 10.94 2.66671 8C2.66671 5.06 5.06004 2.66667 8.00004 2.66667C10.94 2.66667 13.3334 5.06 13.3334 8C13.3334 10.94 10.94 13.3333 8.00004 13.3333Z"
+                fill="#979797"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_9_2209">
+                <rect width="16" height="16" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+
+          User will be able to manage company information, vessels and users.
+        </span>
+      </div>
+    </div>
+    <!-- Shop access -->
+    <div class="flex w-full gap-2.5">
+      <mat-slide-toggle
+        id="accessShop"
+        formControlName="accessShop"
+        class="pt-[5px]"
+      >
+      </mat-slide-toggle>
+      <div class="flex flex-col flex-1 gap-[5px]">
+        <label
+          for="accessShop"
+          class="py-2.5 px-4 text-sm flex-1 rounded-lg transition"
+          [ngClass]="{
+            'text-[#606060] bg-[#FAFAFA]':
+              !userForm.controls['accessShop'].value,
+            'text-[#1A873C] bg-[#1A873C1A]':
+              userForm.controls['accessShop'].value
+          }"
+          >See Marihub shop</label
+        >
+        <span class="text-[#979797] text-xs flex flex-1 gap-1">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_9_2209)">
+              <path
+                d="M7.33337 4.66667H8.66671V6H7.33337V4.66667ZM7.33337 7.33333H8.66671V11.3333H7.33337V7.33333ZM8.00004 1.33333C4.32004 1.33333 1.33337 4.32 1.33337 8C1.33337 11.68 4.32004 14.6667 8.00004 14.6667C11.68 14.6667 14.6667 11.68 14.6667 8C14.6667 4.32 11.68 1.33333 8.00004 1.33333ZM8.00004 13.3333C5.06004 13.3333 2.66671 10.94 2.66671 8C2.66671 5.06 5.06004 2.66667 8.00004 2.66667C10.94 2.66667 13.3334 5.06 13.3334 8C13.3334 10.94 10.94 13.3333 8.00004 13.3333Z"
+                fill="#979797"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_9_2209">
+                <rect width="16" height="16" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+
+          User will be able to see Marihub shop.
+        </span>
+      </div>
+    </div>
+    <!-- Orders access  -->
+    <div class="flex w-full gap-2.5">
+      <mat-slide-toggle
+        id="accessOrders"
+        formControlName="accessOrders"
+        class="pt-[5px]"
+      >
+      </mat-slide-toggle>
+      <div class="flex flex-col flex-1 gap-[5px]">
+        <label
+          for="accessOrders"
+          class="py-2.5 px-4 text-sm flex-1 rounded-lg transition"
+          [ngClass]="{
+            'text-[#606060] bg-[#FAFAFA]':
+              !userForm.controls['accessOrders'].value,
+            'text-[#1A873C] bg-[#1A873C1A]':
+              userForm.controls['accessOrders'].value
+          }"
+          >Access company’s orders</label
+        >
+        <span class="text-[#979797] text-xs flex flex-1 gap-1">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_9_2209)">
+              <path
+                d="M7.33337 4.66667H8.66671V6H7.33337V4.66667ZM7.33337 7.33333H8.66671V11.3333H7.33337V7.33333ZM8.00004 1.33333C4.32004 1.33333 1.33337 4.32 1.33337 8C1.33337 11.68 4.32004 14.6667 8.00004 14.6667C11.68 14.6667 14.6667 11.68 14.6667 8C14.6667 4.32 11.68 1.33333 8.00004 1.33333ZM8.00004 13.3333C5.06004 13.3333 2.66671 10.94 2.66671 8C2.66671 5.06 5.06004 2.66667 8.00004 2.66667C10.94 2.66667 13.3334 5.06 13.3334 8C13.3334 10.94 10.94 13.3333 8.00004 13.3333Z"
+                fill="#979797"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_9_2209">
+                <rect width="16" height="16" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+
+          User will be able to see and manage company’s orders.
+        </span>
+      </div>
+    </div>
+  </section>
+  <div mat-dialog-actions align="end">
+    <div class="flex items-center gap-2 px-4">
+      <button
+        mat-button
+        mat-dialog-close
+        class="bg-transparent text-[#3570FF] flex items-center justify-center gap-2 py-2.5 px-4 uppercase rounded-[4px] font-medium text-sm hover:brightness-95 transition"
+      >
+        Cancel
+      </button>
+      <button
+        mat-button
+        [disabled]="userForm.invalid"
+        type="submit"
+        class="bg-[#3570FF] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer text-white flex items-center justify-center gap-2 py-2.5 px-4 uppercase rounded-[4px] font-medium text-sm hover:brightness-95 transition"
+      >
+        {{ edit ? "Edit user" : "Add user" }}
+      </button>
+    </div>
+  </div>
+</form>
