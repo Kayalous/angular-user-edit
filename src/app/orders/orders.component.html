@@ -1,0 +1,31 @@
+<app-layout [hideNavbar]="!user.accessOrders">
+  <app-no-access
+    class="m-auto"
+    *ngIf="!user.accessOrders; else elseBlock"
+  ></app-no-access>
+  <ng-template #elseBlock>
+    <div class="flex flex-col items-center w-full pt-16">
+      <svg
+        width="360"
+        height="360"
+        viewBox="0 0 360 360"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g clip-path="url(#clip0_9_3749)">
+          <path
+            d="M285 30H222.3C216 12.6 199.5 0 180 0C160.5 0 144 12.6 137.7 30H75C58.5 30 45 43.5 45 60V300C45 316.5 58.5 330 75 330H285C301.5 330 315 316.5 315 300V60C315 43.5 301.5 30 285 30ZM180 30C188.25 30 195 36.75 195 45C195 53.25 188.25 60 180 60C171.75 60 165 53.25 165 45C165 36.75 171.75 30 180 30ZM270 300H90C81.75 300 75 293.25 75 285V75C75 66.75 81.75 60 90 60H105V75C105 91.5 118.5 105 135 105H225C241.5 105 255 91.5 255 75V60H270C278.25 60 285 66.75 285 75V285C285 293.25 278.25 300 270 300Z"
+            fill="#3570FF"
+          />
+        </g>
+        <defs>
+          <clipPath id="clip0_9_3749">
+            <rect width="360" height="360" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <span class="text-[#979797]">Welcome to My Dashboard!</span>
+    </div>
+  </ng-template>
+</app-layout>

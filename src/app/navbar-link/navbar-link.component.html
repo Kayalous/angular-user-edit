@@ -1,0 +1,8 @@
+<a
+  [routerLink]="href"
+  class="text-[16px] font-medium flex items-center justify-center gap-2 py-2 px-4 rounded-lg hover:brightness-95 transition"
+  routerLinkActive="active"
+  [ngClass]="noActiveState ? '' : 'navbar-link'"
+>
+  <ng-content></ng-content>
+</a>

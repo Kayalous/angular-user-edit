@@ -81,3 +81,13 @@
 .mat-mdc-elevation-specific.mat-elevation-z8 {
   @apply !shadow-outline-gray;
 }
+
+.navbar-link:not(.active) {
+  @apply text-[#979797] border bg-transparent border-transparent;
+}
+.navbar-link:not(.active):hover {
+  @apply text-[#3570FF] border bg-[#3570FF0D] border-[#3570FF1A];
+}
+.navbar-link.active {
+  @apply text-[#3570FF] border bg-[#3570FF0D] border-[#3570FF1A];
+}
